@@ -9,15 +9,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Init new repo in dist folder and commit generated files
+    - name: Switch branch and deploy
       run: |
-       git init
-       git add -A
-       git config --local user.email "action@github.com"
-       git config --local user.name "GitHub Action"
-       git checkout -b deploy
-       git pull origin main
-       git add .
-       git commit -m "deploy"
-       git push origin deploy
+        git checkout -b deploy
+        git push origin deploy
+
+    - name: Pull from main
+      run: |
+        git checkout main
+        git pull origin main
+
+    - name: Commit changes
+      run: |
+        git add .
+        git commit -m "Deploy changes from main"
+        git push origin main
+
         
