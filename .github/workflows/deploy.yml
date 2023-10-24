@@ -12,18 +12,15 @@ jobs:
     - name: Switch branch and deploy
       run: |
         git checkout -b deploy
-        git pull
         git push origin deploy
 
     - name: Pull from main
       run: |
-        git checkout main
-        git pull origin main
+        git checkout deploy
+        git pull origin deploy
 
     - name: Commit changes
       run: |
         git add .
         git commit -m "Deploy changes from main"
-        git push origin main
-
-        
+        git push origin deploy
