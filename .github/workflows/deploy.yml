@@ -12,6 +12,7 @@ jobs:
     - name: Switch branch and deploy
       run: |
         git checkout -b deploy
+        git pull
         git push origin deploy
 
     - name: Pull from main
