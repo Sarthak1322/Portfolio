@@ -15,4 +15,5 @@ jobs:
        git pull origin main
        git add .
        git commit -m "deploy"
+       git push origin deploy
         
